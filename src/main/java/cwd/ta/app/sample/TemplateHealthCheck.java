@@ -1,4 +1,4 @@
-package cwd.ta.app;
+package cwd.ta.app.sample;
 
 import com.codahale.metrics.health.HealthCheck;
 

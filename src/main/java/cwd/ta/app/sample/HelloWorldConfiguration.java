@@ -1,4 +1,4 @@
-package cwd.ta.app;
+package cwd.ta.app.sample;
 
 import io.dropwizard.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;

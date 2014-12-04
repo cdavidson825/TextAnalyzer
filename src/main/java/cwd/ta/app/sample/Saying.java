@@ -1,4 +1,4 @@
-package cwd.ta.app;
+package cwd.ta.app.sample;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.Length;

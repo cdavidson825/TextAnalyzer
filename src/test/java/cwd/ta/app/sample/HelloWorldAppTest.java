@@ -1,4 +1,4 @@
-package cwd.dropwiz.app;
+package cwd.ta.app.sample;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -6,7 +6,7 @@ import org.junit.Test;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class HelloWorldAppTest 
 {
 	@Test
     public void testApp()

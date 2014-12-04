@@ -1,12 +1,12 @@
-package cwd.ta.app;
+package cwd.ta.app.sample;
 
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
-public class TextAnalyzerApp extends Application<HelloWorldConfiguration> {
+public class HelloWorldApp extends Application<HelloWorldConfiguration> {
     public static void main(String[] args) throws Exception {
-        new TextAnalyzerApp().run(args);
+        new HelloWorldApp().run(args);
     }
 
     @Override
