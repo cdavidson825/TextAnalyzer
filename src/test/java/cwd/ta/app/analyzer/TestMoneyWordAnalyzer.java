@@ -49,9 +49,8 @@ public class TestMoneyWordAnalyzer {
 	public void testAnalyze() {
 		String text = "posting some text to get primary dollar words ";
 		Result result = analyzer.analyze(text);
-		System.out.println("results = " + result.getAnalysisMap());
-		System.out.println("dollarWords lookup = "
-				+ result.getAnalysisFor(MoneyWordAnalyzer.DOLLAR_WORDS_KEY));
+		assertThat(result.getAnalysisFor(MoneyWordAnalyzer.DOLLAR_WORDS_KEY),
+				is("[posting, primary]"));
 
 	}
 
