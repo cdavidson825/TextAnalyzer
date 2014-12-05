@@ -1,36 +1,23 @@
 package cwd.ta.app;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.is;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class TextAnalyzerAppTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
+	TextAnalyzerApp app = null;
 
 	@Before
 	public void setUp() throws Exception {
+		app = new TextAnalyzerApp();
 	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Ignore
 	@Test
-	public void testAppExists() {
-		fail("Not yet implemented");
+	public void canaryTest() {
+		assertThat(TextAnalyzerApp.class.getName(), is(app.getName()));
 	}
 
 }
