@@ -18,7 +18,7 @@ public class TestSummaryAnalyzer {
 
 	@Test
 	public void testCharCount() {
-		Result results = analyzer.analyze(text);
+		Analysis results = analyzer.analyze(text);
 		String totalCharacters = results.getAnalysisFor(SummaryAnalyzer.TOTAL_CHARACTERS_KEY);
 		assertThat(Integer.parseInt(totalCharacters), is(15));
 	}
@@ -26,7 +26,7 @@ public class TestSummaryAnalyzer {
 	@Test
 	public void testWordCount()
 	{
-		Result results = analyzer.analyze(text);
+		Analysis results = analyzer.analyze(text);
 		String totalWords = results.getAnalysisFor(SummaryAnalyzer.TOTAL_WORDS_KEY);
 		assertThat(Integer.parseInt(totalWords), is(4));
 	}

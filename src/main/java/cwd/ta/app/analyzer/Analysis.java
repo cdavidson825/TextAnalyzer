@@ -2,12 +2,12 @@ package cwd.ta.app.analyzer;
 
 import java.util.Map;
 
-public class Result {
+public class Analysis {
 	
 	final private String analyzerName;
 	final private Map<String, String> analysisMap;
 	
-	public Result(String analyzerName, Map<String, String> analysisMap)
+	public Analysis(String analyzerName, Map<String, String> analysisMap)
 	{
 		this.analyzerName = analyzerName;
 		this.analysisMap = analysisMap;

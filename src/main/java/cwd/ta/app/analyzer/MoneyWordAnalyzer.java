@@ -43,7 +43,7 @@ public class MoneyWordAnalyzer implements IAnalyzer {
 		}
 	};
 
-	public Result analyze(String input) {
+	public Analysis analyze(String input) {
 		List<String> words = Arrays.asList(input.split(" "));
 		List<String> dollarWords = words
 				.stream().map(w -> wordCost(w))
@@ -52,7 +52,7 @@ public class MoneyWordAnalyzer implements IAnalyzer {
 				.collect(Collectors.toList());
 		Map<String, String> analysis = new HashMap<String, String>();
 		analysis.put(DOLLAR_WORDS_KEY, dollarWords.toString());
-		Result result = new Result(this.getClass().getName(), analysis);
+		Analysis result = new Analysis(this.getClass().getName(), analysis);
 		return result;
 	}
 

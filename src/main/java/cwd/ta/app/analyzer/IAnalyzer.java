@@ -2,6 +2,8 @@ package cwd.ta.app.analyzer;
 
 public interface IAnalyzer {
 	
-	public Result analyze(String input);
+	
+	public static final String ORIGINAL_TEXT_KEY = "ORIGINAL_TEXT";
+	public Analysis analyze(String input);
 
 }
