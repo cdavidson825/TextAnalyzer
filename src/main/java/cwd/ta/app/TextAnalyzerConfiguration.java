@@ -6,19 +6,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.dropwizard.Configuration;
 
-public class TextAnalyzerConfiguration extends Configuration {
+public class TextAnalyzerConfiguration extends Configuration
+{
 
     @NotEmpty
-    private String defaultText = null;
-    
+    private String defaultText;
+
     @JsonProperty
-    public String getDefaultText() {
+    public String getDefaultText()
+    {
         return defaultText;
     }
 
     @JsonProperty
-    public void setDefaultText(String text) {
+    public void setDefaultText(String text)
+    {
         this.defaultText = text;
     }
-	
+
 }

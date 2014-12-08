@@ -8,24 +8,26 @@ import org.junit.Test;
 
 import cwd.ta.app.sample.Saying;
 
-public class SayingTest {
+public class SayingTest
+{
 
-	Saying say = null;
-	
-	@Before
-	public void init()
-	{
-		say = new Saying(1L, "Hello");
-	}
-	@Test
-	public void testSayingContent()
-	{
-		assertThat("Hello", is(say.getContent()));
-	}
-	
-	@Test
-	public void testSayingId()
-	{
-		assertThat("WTF happened", 1L, is(say.getId()));
-	}
+    Saying say = null;
+
+    @Before
+    public void init()
+    {
+        say = new Saying(1L, "Hello");
+    }
+
+    @Test
+    public void testSayingContent()
+    {
+        assertThat("Hello", is(say.getContent()));
+    }
+
+    @Test
+    public void testSayingId()
+    {
+        assertThat("WTF happened", 1L, is(say.getId()));
+    }
 }

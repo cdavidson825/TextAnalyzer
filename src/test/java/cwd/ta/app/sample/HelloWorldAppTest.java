@@ -6,11 +6,11 @@ import org.junit.Test;
 /**
  * Unit test for simple App.
  */
-public class HelloWorldAppTest 
+public class HelloWorldAppTest
 {
-	@Test
+    @Test
     public void testApp()
     {
-        assertTrue( true );
+        assertTrue(true);
     }
 }

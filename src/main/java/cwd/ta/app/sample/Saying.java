@@ -3,28 +3,33 @@ package cwd.ta.app.sample;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.Length;
 
-public class Saying {
+public class Saying
+{
     private long id;
 
     @Length(max = 3)
     private String content;
 
-    public Saying() {
+    public Saying()
+    {
         // Jackson deserialization
     }
 
-    public Saying(long id, String content) {
+    public Saying(long id, String content)
+    {
         this.id = id;
         this.content = content;
     }
 
     @JsonProperty
-    public long getId() {
+    public long getId()
+    {
         return id;
     }
 
     @JsonProperty
-    public String getContent() {
+    public String getContent()
+    {
         return content;
     }
 }

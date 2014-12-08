@@ -2,19 +2,20 @@ package cwd.ta.app.health;
 
 import com.codahale.metrics.health.HealthCheck;
 
-public class TextAnalyzerHealthCheck extends HealthCheck{
+import cwd.ta.app.TextAnalyzerConfiguration;
 
-    private final String defaultText;
+public class TextAnalyzerHealthCheck extends HealthCheck
+{
+    private final TextAnalyzerConfiguration config;
 
-    public TextAnalyzerHealthCheck(String defaultText) {
-        this.defaultText = defaultText;
+    public TextAnalyzerHealthCheck(TextAnalyzerConfiguration config)
+    {
+        this.config = config;
     }
 
     @Override
-    protected Result check() throws Exception {
-        if (defaultText.isEmpty()) {
-            return Result.unhealthy("defaultText not provided");
-        }
+    protected Result check() throws Exception
+    {   
         return Result.healthy();
     }
 
