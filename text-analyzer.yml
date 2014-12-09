@@ -1,1 +1,22 @@
+
+##############################################################################
+# application config:                                                        #
+##############################################################################
+
 defaultText: posting some text to get primary dollar words
+
+
+###############################################################################
+# System configs (overrides)                                                  #
+# resource: https://dropwizard.github.io/dropwizard/manual/configuration.html #
+###############################################################################
+
+logging:
+  level: INFO
+  loggers:
+    io.dropwizard: INFO
+  appenders:
+    - type: console
+    
+    
+    

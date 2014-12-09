@@ -24,10 +24,17 @@ public class Analysis
         return analysisMap;
     }
 
-    // TODO make return Optional
     public String getAnalysisFor(String key)
     {
         return analysisMap.get(key);
     }
+
+    @Override
+    public String toString()
+    {
+        return "AnalyzerName = " + analyzerName +", Analysis = " + analysisMap + "]";
+    }
+    
+    
 
 }

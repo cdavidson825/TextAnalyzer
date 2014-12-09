@@ -2,13 +2,13 @@ package cwd.ta.app.health;
 
 import com.codahale.metrics.health.HealthCheck;
 
-import cwd.ta.app.TextAnalyzerConfiguration;
+import cwd.ta.app.TextAnalyzerConfig;
 
 public class TextAnalyzerHealthCheck extends HealthCheck
 {
-    private final TextAnalyzerConfiguration config;
+    private final TextAnalyzerConfig config;
 
-    public TextAnalyzerHealthCheck(TextAnalyzerConfiguration config)
+    public TextAnalyzerHealthCheck(TextAnalyzerConfig config)
     {
         this.config = config;
     }

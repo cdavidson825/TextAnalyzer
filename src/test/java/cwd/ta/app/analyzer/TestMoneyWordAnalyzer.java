@@ -9,7 +9,10 @@ import org.junit.Test;
 public class TestMoneyWordAnalyzer
 {
 
-    MoneyWordAnalyzer analyzer = null;
+    //dollar words = Wednesday, pumpkin, and telephone
+    private static final String dollarWordText = "On Wednesday, we will be eating pumpkin and talking on the telephone.";
+    
+    private MoneyWordAnalyzer analyzer = null;
 
     @Before
     public void setup()
@@ -53,13 +56,19 @@ public class TestMoneyWordAnalyzer
     }
 
     @Test
-    public void testAnalyze()
+    public void testDollarWordsExtracted()
     {
-        String text = "posting some text to get primary dollar words ";
-        Analysis result = analyzer.analyze(text);
+        Analysis result = analyzer.analyze(dollarWordText);
         assertThat(result.getAnalysisFor(MoneyWordAnalyzer.DOLLAR_WORDS_KEY),
-                is("[posting, primary]"));
+                is("[Wednesday, pumpkin, telephone]"));
+    }
 
+    @Test
+    public void testTotalCost()
+    {
+        Analysis result = analyzer.analyze(dollarWordText);
+        assertThat(result.getAnalysisFor(MoneyWordAnalyzer.TOTAL_COST_TOTAL_KEY),
+                is("631"));
     }
 
 }

@@ -22,8 +22,8 @@ public class TestSummaryAnalyzer
     public void testCharCount()
     {
         Analysis results = analyzer.analyze(text);
-        String totalCharacters = results.getAnalysisFor(SummaryAnalyzer.TOTAL_CHARACTERS_KEY);
-        assertThat(Integer.parseInt(totalCharacters), is(15));
+        String totalCharacters = results.getAnalysisFor(SummaryAnalyzer.TOTAL_NON_SPACE_CHARACTERS_KEY);
+        assertThat(Integer.parseInt(totalCharacters), is(12));
     }
 
     @Test

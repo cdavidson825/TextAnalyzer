@@ -11,6 +11,7 @@ public class MoneyWordAnalyzer implements IAnalyzer
 {
 
     public static final String DOLLAR_WORDS_KEY = "DOLLAR_WORDS";
+    public static final String TOTAL_COST_TOTAL_KEY = "TOTAL_COST";
 
     @SuppressWarnings("serial")
     private final Map<Character, Integer> charCostMap = new HashMap<Character, Integer>()
@@ -47,12 +48,20 @@ public class MoneyWordAnalyzer implements IAnalyzer
 
     public Analysis analyze(String input)
     {
-        List<String> words = Arrays.asList(input.split(" "));
-        List<String> dollarWords =
-                words.stream().map(w -> wordCost(w)).filter(c -> c.getValue() == 100)
-                        .map(c -> c.getKey()).collect(Collectors.toList());
         Map<String, String> analysis = new HashMap<String, String>();
+
+        List<String> words = Arrays.asList(input.split("[^a-zA-Z]"));
+        List<SimpleImmutableEntry<String, Integer>> wordCostList = 
+                words.stream().map(w -> wordCost(w)).collect(Collectors.toList());
+        
+        Long totalCost = wordCostList.stream().mapToLong(c -> c.getValue()).sum();
+        analysis.put(TOTAL_COST_TOTAL_KEY, totalCost.toString());
+
+        List<String> dollarWords =
+                wordCostList.stream().filter(c -> c.getValue() == 100)
+                        .map(c -> c.getKey()).collect(Collectors.toList());
         analysis.put(DOLLAR_WORDS_KEY, dollarWords.toString());
+        
         Analysis result = new Analysis(this.getClass().getName(), analysis);
         return result;
     }
