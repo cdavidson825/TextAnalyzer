@@ -62,7 +62,7 @@ public class MoneyWordAnalyzer implements IAnalyzer
                         .map(c -> c.getKey()).collect(Collectors.toList());
         analysis.put(DOLLAR_WORDS_KEY, dollarWords.toString());
         
-        Analysis result = new Analysis(this.getClass().getName(), analysis);
+        Analysis result = new Analysis(getAnalyzerName(), analysis);
         return result;
     }
 

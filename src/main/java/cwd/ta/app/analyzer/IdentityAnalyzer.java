@@ -15,7 +15,7 @@ public class IdentityAnalyzer  implements IAnalyzer
         Map<String, String> analysis = new HashMap<String, String>();
 
         analysis.put(ORIGINAL_TEXT_KEY, input);
-        Analysis result = new Analysis(this.getClass().getName(), analysis);
+        Analysis result = new Analysis(getAnalyzerName(), analysis);
 
         return result;
     }
