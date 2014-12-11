@@ -3,7 +3,7 @@
 ## Executive Summary:
 * Dropwizard, developed by Yammer/CodaHale, pulls together stable, mature Java libraries into a simple, light-weight (web-enabled) package.
 * Dropwizard has out-of-the-box support for sophisticated configuration, application metrics, logging, operational tools, allowing you to ship a production-quality web service quickly.
-* Drowizard applications are typically deployed as single (uber) JARs (using Maven Shade) allowing for trivial/consistent deployment across all environments.  Enviornment specific info is stored in config files provided at runtime.
+* Drowizard applications are typically deployed as single (uber) JARs (using Maven Shade) allowing for trivial/consistent deployment across all environments.  Environment specific info is stored in config files provided at runtime.
 
 ## Libraries included w/ Dropwizard:
 * Jetty as the embedded web server
@@ -40,8 +40,8 @@
     @Produces(MediaType.APPLICATION_JSON)
     public class TextAnalyzerResource
  
-* Each Resource class is associated with a URI and has methods to handle the various GET/POST/PUT/DELETE requests.
-* A successful response from a Resource is typically 200 OK with the content type of application/json and the JSON-ified represntation of the response class.
+* Each Resource class is associated with a URI template and has methods to handle the various GET/POST/PUT/DELETE requests.
+* A successful response from a Resource is typically 200 OK with the content type of application/json and the JSON-ified representation of the response class.
 * Resources should be stateless/immutable.
 * Uses  ** javax.ws.rs ** annotations (https://docs.oracle.com/javaee/6/api/javax/ws/rs/package-summary.html):
   * Application-level -- @Path("/text-analyzer") and @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)

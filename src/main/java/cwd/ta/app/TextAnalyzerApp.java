@@ -27,6 +27,7 @@ public class TextAnalyzerApp extends Application<TextAnalyzerConfig>
     {
         bootstrap.addBundle(new ViewBundle());
         bootstrap.addBundle(new AssetsBundle());
+        bootstrap.addBundle(new AssetsBundle("/app", "/app", "index.html", "app"));
     }
 
     @Override

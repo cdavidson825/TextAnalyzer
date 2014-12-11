@@ -29,12 +29,4 @@ public class Analysis
         return analysisMap.get(key);
     }
 
-    @Override
-    public String toString()
-    {
-        return "AnalyzerName = " + analyzerName +", Analysis = " + analysisMap + "]";
-    }
-    
-    
-
 }

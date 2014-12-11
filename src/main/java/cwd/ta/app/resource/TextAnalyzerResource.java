@@ -64,9 +64,24 @@ public class TextAnalyzerResource
     {
         logger.info("Inside analyzeViaGetWithView");
         List<Analysis> analysisList = analyze(text.or(config.getDefaultText()));
-        String viewTemplateName="analysis.ftl";
-        return (new AnalysisView(viewTemplateName, analysisList));
+        return (new AnalysisView(getTemplateName(), analysisList));
     }
+    
+    @POST
+    @Path("/html")
+    @Produces(MediaType.TEXT_HTML)
+    public AnalysisView analyzeViaPostWithView(@FormParam("text") String text)
+    {
+        logger.info("Inside analyzeViaPostWithView");
+        if(text == null || text.isEmpty())
+        {
+            text = config.getDefaultText();
+        }
+        List<Analysis> analysisList = analyze(text);
+        return (new AnalysisView(getTemplateName(), analysisList));
+    }
+    
+
     
     private List<Analysis> analyze(String text)
     {
@@ -76,6 +91,11 @@ public class TextAnalyzerResource
         analysisList.add(new MoneyWordAnalyzer().analyze(text));
         
         return (analysisList);
+    }
+    
+    private String getTemplateName()
+    {
+        return "analysis.mustache";
     }
     
 }
