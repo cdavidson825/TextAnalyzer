@@ -21,7 +21,7 @@ import com.google.common.base.Optional;
 import cwd.ta.app.TextAnalyzerConfig;
 import cwd.ta.app.analyzer.Analysis;
 import cwd.ta.app.analyzer.IdentityAnalyzer;
-import cwd.ta.app.analyzer.MoneyWordAnalyzer;
+import cwd.ta.app.analyzer.DollarWordAnalyzer;
 import cwd.ta.app.analyzer.SummaryAnalyzer;
 import cwd.ta.app.view.AnalysisView;
 
@@ -81,14 +81,12 @@ public class TextAnalyzerResource
         return (new AnalysisView(getTemplateName(), analysisList));
     }
     
-
-    
     private List<Analysis> analyze(String text)
     {
         List<Analysis> analysisList = new ArrayList<Analysis>();
         analysisList.add(new IdentityAnalyzer().analyze(text));
         analysisList.add(new SummaryAnalyzer().analyze(text));
-        analysisList.add(new MoneyWordAnalyzer().analyze(text));
+        analysisList.add(new DollarWordAnalyzer().analyze(text));
         
         return (analysisList);
     }

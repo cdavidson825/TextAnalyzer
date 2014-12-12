@@ -3,7 +3,7 @@
 ## Executive Summary:
 * Dropwizard, developed by Yammer/CodaHale, pulls together stable, mature Java libraries into a simple, light-weight (web-enabled) package.
 * Dropwizard has out-of-the-box support for sophisticated configuration, application metrics, logging, operational tools, allowing you to ship a production-quality web service quickly.
-* Drowizard applications are typically deployed as single (uber) JARs (using Maven Shade) allowing for trivial/consistent deployment across all environments.  Environment specific info is stored in config files provided at runtime.
+* Dropwizard applications are typically deployed as single "fat" JAR (using Maven Shade) allowing for trivial/consistent deployment across all environments.  Environment specific info is stored in config files provided at runtime.
 
 ## Libraries included w/ Dropwizard:
 * Jetty as the embedded web server

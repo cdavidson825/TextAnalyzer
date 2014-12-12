@@ -6,18 +6,18 @@ import static org.hamcrest.Matchers.is;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestMoneyWordAnalyzer
+public class TestDollarWordAnalyzer
 {
 
     //dollar words = Wednesday, pumpkin, and telephone
     private static final String dollarWordText = "On Wednesday, we will be eating pumpkin and talking on the telephone.";
     
-    private MoneyWordAnalyzer analyzer = null;
+    private DollarWordAnalyzer analyzer = null;
 
     @Before
     public void setup()
     {
-        analyzer = new MoneyWordAnalyzer();
+        analyzer = new DollarWordAnalyzer();
     }
 
     @Test
@@ -59,7 +59,7 @@ public class TestMoneyWordAnalyzer
     public void testDollarWordsExtracted()
     {
         Analysis result = analyzer.analyze(dollarWordText);
-        assertThat(result.getAnalysisFor(MoneyWordAnalyzer.DOLLAR_WORDS_KEY),
+        assertThat(result.getAnalysisFor(DollarWordAnalyzer.DOLLAR_WORDS_KEY),
                 is("[Wednesday, telephone, pumpkin]"));
     }
 
@@ -67,8 +67,8 @@ public class TestMoneyWordAnalyzer
     public void testTotalCost()
     {
         Analysis result = analyzer.analyze(dollarWordText);
-        assertThat(result.getAnalysisFor(MoneyWordAnalyzer.TOTAL_COST_TOTAL_KEY),
-                is("631"));
+        assertThat(result.getAnalysisFor(DollarWordAnalyzer.TOTAL_COST_TOTAL_KEY),
+                is("$6.31"));
     }
 
 }

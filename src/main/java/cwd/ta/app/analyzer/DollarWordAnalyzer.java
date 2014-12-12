@@ -1,14 +1,16 @@
 package cwd.ta.app.analyzer;
 
+import java.text.NumberFormat;
 import java.util.AbstractMap.SimpleImmutableEntry;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class MoneyWordAnalyzer implements IAnalyzer
+public class DollarWordAnalyzer implements IAnalyzer
 {
 
     public static final String DOLLAR_WORDS_KEY = "DOLLAR_WORDS";
@@ -56,7 +58,7 @@ public class MoneyWordAnalyzer implements IAnalyzer
                 words.stream().map(w -> wordCost(w)).collect(Collectors.toList());
         
         Long totalCost = wordCostList.stream().mapToLong(c -> c.getValue()).sum();
-        analysis.put(TOTAL_COST_TOTAL_KEY, totalCost.toString());
+        analysis.put(TOTAL_COST_TOTAL_KEY, covertToDollars(totalCost));
 
         Set<String> dollarWords =
                 wordCostList.stream().filter(c -> c.getValue() == 100)
@@ -74,5 +76,12 @@ public class MoneyWordAnalyzer implements IAnalyzer
                         .filter(c -> charCostMap.containsKey(c)).mapToInt(c -> charCostMap.get(c))
                         .sum();
         return (new SimpleImmutableEntry<String, Integer>(word, cost));
+    }
+    
+    protected String covertToDollars(long cents)
+    {
+        NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
+        String dollarValue = n.format(cents / 100.0);
+        return dollarValue;
     }
 }
