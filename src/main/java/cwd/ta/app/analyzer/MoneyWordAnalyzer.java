@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class MoneyWordAnalyzer implements IAnalyzer
@@ -57,9 +58,9 @@ public class MoneyWordAnalyzer implements IAnalyzer
         Long totalCost = wordCostList.stream().mapToLong(c -> c.getValue()).sum();
         analysis.put(TOTAL_COST_TOTAL_KEY, totalCost.toString());
 
-        List<String> dollarWords =
+        Set<String> dollarWords =
                 wordCostList.stream().filter(c -> c.getValue() == 100)
-                        .map(c -> c.getKey()).collect(Collectors.toList());
+                        .map(c -> c.getKey()).distinct().collect(Collectors.toSet());
         analysis.put(DOLLAR_WORDS_KEY, dollarWords.toString());
         
         Analysis result = new Analysis(getAnalyzerName(), analysis);

@@ -60,7 +60,7 @@ public class TestMoneyWordAnalyzer
     {
         Analysis result = analyzer.analyze(dollarWordText);
         assertThat(result.getAnalysisFor(MoneyWordAnalyzer.DOLLAR_WORDS_KEY),
-                is("[Wednesday, pumpkin, telephone]"));
+                is("[Wednesday, telephone, pumpkin]"));
     }
 
     @Test
